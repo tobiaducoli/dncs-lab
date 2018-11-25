@@ -302,6 +302,8 @@ Last login: Fri Nov 23 09:29:11 2018 from 10.0.2.2
  </html>"> /home/user/website/docker.html
  
  ```
+ If there is a problem with docker on host-2-c try to:
+ *`vagrant reload host-2-c --provision`
  
 # License & bugs
  This code was developed during the lessons of the course of "Design of networks and communication systems", as an assignment.
