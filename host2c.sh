@@ -9,7 +9,7 @@ ip add add 192.168.40.1/30 dev eth1
 ip route add 192.168.0.0/16 via 192.168.40.2
 docker rm $(docker ps -a -q)
 docker ps
-docker run -dit --name tecmint-web -p 32768:80 -v /home/user/website/:/usr/local/apache2/htdocs/ httpd:2.4
+docker run -dit --name nginx -p 32768:80 -v /home/user/website/:/usr/share/nginx/html:ro -d nginx
 docker ps
 echo "<!DOCTYPE html>
 <html lang="en">
