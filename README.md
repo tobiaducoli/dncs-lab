@@ -172,7 +172,7 @@ Here there are the commands common for each router:
 * `ip add add 192.168.40.1/30 dev eth1` : add address 192.168.40.1/30 to interface eth1;
 * `ip route add 192.168.0.0/16 via 192.168.40.2` :add a static route for all packages through the default gateway;
 * `docker rm $(docker ps -a -q)` :remove all docker's stopped containers;
-* `docker run -dit --name tecmint-web -p 32768:80 -v /home/user/website/:/usr/local/apache2/htdocs/ httpd:2.4` : run docker from the docker image tecmint-web with a specific port (32768);
+* `docker run --name mynginx1 -p 32768:80 -v /home/user/website/:/usr/share/nginx/html:ro -d nginx` : run docker from the docker image tecmint-web with a specific port (32768);
 * `echo <!DOCTYPE html> ... </html> /home/user/website/docker.html` :write in a new file html the code of the static site that we will reach testing the assignment;
 
 # Switch	
@@ -302,7 +302,7 @@ Last login: Fri Nov 23 09:29:11 2018 from 10.0.2.2
  </html>"> /home/user/website/docker.html
  
  ```
- If there is a problem with docker on host-2-c try to run:
+ * If there is a problem with docker on host-2-c try to run:
  `vagrant reload host-2-c --provision`
  
 # License & bugs
