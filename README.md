@@ -173,17 +173,7 @@ Here there are the commands common for each router:
 * `ip route add 192.168.0.0/16 via 192.168.40.2` :add a static route for all packages through the default gateway;
 * `docker rm $(docker ps -a -q)` :remove all docker's stopped containers;
 * `docker run -dit --name tecmint-web -p 32768:80 -v /home/user/website/:/usr/local/apache2/htdocs/ httpd:2.4` : run docker from the docker image tecmint-web with a specific port (32768);
-* `echo <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Assignment of Design of Network and Communication System</title>
-</head>
-<body>
-    <h1>If you reach thi static web page and you visualize it correctly means that the configuration is correct!</h1>
-    <h2>This project was made by Juri Dalvai and Tobia Ducoli.</h2>
-</body>
-</html> /home/user/website/docker.html` :write in a new file html the code of the static site that we will reach testing the assignment;
+* `echo <!DOCTYPE html> ... </html> /home/user/website/docker.html` :write in a new file html the code of the static site that we will reach testing the assignment;
 
 # Switch	
 * `apt-get install -y openvswitch-common openvswitch-switch apt-transport-https ca-certificates curl software-properties-common`: install packages to use an OpenSwitch ;
