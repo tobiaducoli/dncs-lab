@@ -49,7 +49,7 @@ Below there's a rappresentation of the network topology, with specified the port
         |  M  |                       |eth1        192.168.40.2/30|eth1
         |  A  |      192.168.10.254/24|eth1.10                    |
         |  N  |       192.168.20.30/27|eth1.20                    |
-		|  A  |                       |            192.168.40.1/30|eth1
+	|  A  |                       |            192.168.40.1/30|eth1
         |  G  |                       |                     +-----+----+
         |  E  |                       |eth1                 |          |
         |  M  |             +-------------------+           |          |
@@ -110,7 +110,7 @@ where:
 # Virtual LANs, aka VLANs
  
 As it's possible to notice from the map above, due the fact that host-1-a and host-1-b are (hypothetically) on the same collision
-area, we decided to define to different VLANs for host-1-a and host-1-b. The main advantage of this choice is that the use of VLANs allows to
+domain, we decided to define to different VLANs for host-1-a and host-1-b. The main advantage of this choice is that the use of VLANs allows to
 separate, to split the "left" region of our topology(the one containing host-1-a, host-1-b, switch and router-1) in two different virtual subnets, 
 each of them with its own collision domain, without adding another router.
 Another reason for using VLANs is the fact that, in our assignment, both host-1-a and host-1-b had to be able to reach a webpage hosted on a webserver
@@ -144,7 +144,7 @@ At this point, it's a good idea to write in a table the interfaces numbers and t
 # Vagrantfile
 The Vagrantfile is the file in which are described all the command necessary to initialize the virtual machines, and to establish connections between them.
 For each machines it's possible to define:
- * the host-name with `host.vm.hostname = "nome"`;
+ * the host-name with `host.vm.hostname = "name"`;
  * the image loaded in the VM, in our case `host.vm.box = "minimal/trusty64"`; 
  * the type of network(private or public) with `hosta.vm.network "private_network"`;
  * the file which contains the provisioner `hosta.vm.provision "shell", path: "host1a.sh"`;
@@ -173,7 +173,7 @@ Here there are the commands common for each router:
 * `ip route add 192.168.0.0/16 via 192.168.40.2` :add a static route for all packages through the default gateway;
 * `docker rm $(docker ps -a -q)` :remove all docker's stopped containers;
 * `docker run -dit --name tecmint-web -p 32768:80 -v /home/user/website/:/usr/local/apache2/htdocs/ httpd:2.4` : run docker from the docker image tecmint-web with a specific port (32768);
-* `echo"<!DOCTYPE html>
+* `echo <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -183,7 +183,7 @@ Here there are the commands common for each router:
     <h1>If you reach thi static web page and you visualize it correctly means that the configuration is correct!</h1>
     <h2>This project was made by Juri Dalvai and Tobia Ducoli.</h2>
 </body>
-</html>"> /home/user/website/docker.html` :write in a new file html the code of the static site that we will reach testing the assignment;
+</html> /home/user/website/docker.html` :write in a new file html the code of the static site that we will reach testing the assignment;
 
 # Switch	
 * `apt-get install -y openvswitch-common openvswitch-switch apt-transport-https ca-certificates curl software-properties-common`: install packages to use an OpenSwitch ;
@@ -289,7 +289,7 @@ Last login: Fri Nov 23 09:29:11 2018 from 10.0.2.2
  curl 192.168.40.1:32768/docker.html
   ```
  And again, you may hear a question like:
- >Why are you waiting curl and not simply ping?
+ >Why are you using curl and not simply ping?
  >and what does the :32768 stand for?
  
  While `ping` is useful just for testing the presence/absence of connection between two hosts, with the
